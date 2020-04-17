@@ -1,0 +1,205 @@
+@import "../../utils/variables"
+@import "../../mixins/flex"
+
+.main
+  background-color: #f7f7f7
+
+.delivery
+  width: 80%
+  height: 250px
+  margin: 0 auto
+  background: rgb(250, 235, 48)
+
+
+  &__content
+    height: 100%
+    width: 50%
+    max-width: $mediaWidthLaptop
+    margin: 0 auto
+    padding: 25px 0
+    background: url("../img/delivery.jpg") center center no-repeat
+    -webkit-background-size: cover
+    background-size: cover
+    color: #ffffff
+    text-transform: uppercase
+    @include flex-between-center
+    flex-direction: column
+    font-weight: bold
+    font-size: 18px
+
+    @media screen and (max-width: $mediaWidthTablet)
+      background: rgb(250, 235, 48)
+
+    &-title,
+    &-tags
+      width: 90%
+      @include flex-start-start
+      flex-direction: column
+
+
+    &-tags
+      font-weight: normal
+      font-size: 16px
+
+
+// --------------- Button
+.btn-buy
+  height: 40px
+  padding: 10px 30px
+  background-color: #fff
+  color: #000
+  font-weight: normal
+  transition: .5s ease
+  text-transform: uppercase
+
+  &:hover
+    background-color: #000
+    color: #ffffff
+
+
+// --------------- New
+
+.new
+  width: 80%
+  height: 500px
+  margin: 0 auto
+  margin-top: 25px
+  margin-bottom: 25px
+
+  &__content
+    height: 100%
+    width: 100%
+    background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1586760562/mainspring.png") center center no-repeat
+    -webkit-background-size: cover
+    background-size: cover
+    @include flex-center-end
+
+    @media screen and (max-width: $mediaWidthTablet)
+      background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1586760563/main-spring-768x650.png") center center no-repeat
+      -webkit-background-size: cover
+      background-size: cover
+
+    &-btn
+      margin-bottom: 50px
+
+      @media screen and (max-width: $mediaWidthTablet)
+        margin-bottom: 150px
+
+// ---------------
+
+.dress-wrap,
+.trousers-blouses,
+.compilations
+  width: 80vw
+  margin: 0 auto
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  @media screen and (min-width: $mediaWidthTablet)
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-items: center
+
+
+  &__content
+    width: 100%
+    @include flex-center-center
+    flex-direction: column
+    margin: 15px 0
+
+    @media screen and (min-width: $mediaWidthTablet)
+      width: 48%
+
+
+.dress,
+.outwear,
+.trousers,
+.blouses
+  height: 360px
+  width: 100%
+  margin: 0 !important
+  padding: 0
+
+  @media screen and (min-width: $mediaWidthTablet)
+    height: 650px
+
+
+.dress
+  background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1586757304/lushbeauty.png") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.outwear
+  background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1586757387/dress!refresh.png") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.trousers
+  background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1586757474/roundmobile.png") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.blouses
+  background: url("https://cdn.dressa.ru/ostrov-cache/top_banner/1585322093/softandeasy.png") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.print-dress
+  background: url("../img/compilations1.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.skirt
+  background: url("../img/compilations2.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.cocktail-dress
+  background: url("../img/compilations3.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.dress-wrap__content-title,
+.trousers-blouses__content-title
+  text-align: center
+  margin-top: 15px
+  margin-bottom: 15px
+  text-transform: uppercase
+
+.dress-wrap__content-btn,
+.trousers-blouses__content-btn,
+.compilations__item__content-btn
+  @include btn-border
+
+// ---------------- Compilations
+
+.compilations__item
+  width: 100%
+  height: 720px
+  @include flex-center-center
+  flex-direction: column
+  margin-bottom: 15px
+
+  @media screen and (min-width: $mediaWidthTablet)
+    width: 32%
+
+  &-print-dress
+    height: 620px
+    width: 100%
+
+  &-title
+    text-transform: uppercase
+    margin-top: 15px
+    margin-bottom: 15px
+
+// ---------------- Popular
+.popular
+  background-color: #edc5be
+  width: 80vw
+  margin: 0 auto
+  height: 480px
+

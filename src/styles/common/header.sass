@@ -1,0 +1,166 @@
+@import "../mixins/hamburger"
+@import "../mixins/flex"
+
+.header
+  width: 100vw
+  background-color: #000000
+  height: 50px
+  color: #ffffff
+
+  @media screen and (min-width: $mediaWidthTablet)
+    height: 90px
+
+  &__main
+    height: 100%
+    width: 80%
+    margin: 0 auto
+    padding: 0 15px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    position: relative
+
+    @media screen and (min-width: $mediaWidthTablet)
+      height: 50px
+
+    &-logo
+      font-size: 24px
+      text-transform: uppercase
+      position: absolute
+      left: 50px
+
+      @media screen and (min-width: $mediaWidthTablet)
+        left: 15px
+
+
+// --------------- Hamburger ---------------
+.hamburger-box
+  width: 24px
+  height: 24px
+  position: relative
+
+  @media screen and (min-width: 768px)
+    display: none
+
+  &__inner
+    margin-top: 2px
+    @include hamburger-line
+
+  &__inner:before
+    content: ''
+    position: absolute
+    display: block
+    top: 10px
+    @include hamburger-line
+
+  &__inner:after
+    content: ''
+    position: absolute
+    display: block
+    top: 20px
+    @include hamburger-line
+
+// --------------- Header Links ---------------
+
+.header__main-links-list
+  display: flex
+  flex-direction: row
+
+  &__item
+    margin-left: 10px
+    margin-right: 10px
+
+    a
+      display: flex
+      justify-content: center
+      align-items: center
+
+  &__item:first-child
+    margin-left: 0
+  &__item:last-child
+    margin-right: 0
+  &__item:nth-child(2n)
+    display: flex
+
+  &__item:first-child
+
+    @media screen and (min-width: 768px)
+      display: none
+
+// --------------- Header Search ---------------
+.header__main-search
+  display: none
+
+  @media screen and (min-width: 768px)
+    display: block
+    width: 60%
+
+  &-input
+    width: 100%
+    padding: 6px 15px
+    -webkit-border-radius: 2px
+    -moz-border-radius: 2px
+    border-radius: 2px
+    border: none
+    outline: none
+    margin-left: 40px
+
+
+// --------------- Header Navbar ---------------
+.header__navbar
+  display: none
+  width: 100vw
+  height: 40px
+  background-color: #262626
+
+  @media screen and (min-width: $mediaWidthTablet)
+    @include flex-center-center
+
+  &-menu
+    font-size: 12px
+    @include flex-center-center
+    flex-direction: row
+
+    &-item
+      margin: 0 10px
+
+// --------------- Sub-Header ---------------
+.sub-header
+  width: 100vw
+  height: 50px
+  background-color: #fff
+
+.slider
+  height: 100%
+  @include flex-center-center
+
+  div
+    height: 100%
+
+.slider__item-img
+  width: 24px
+  height: 24px
+  margin: 0
+  padding: 0
+  margin-right: 10px !important
+
+.slider__item
+  @include flex-center-center
+  flex-direction: row
+  width: 100%
+  height: 100% !important
+
+  @media screen and (min-width: 768px)
+    width: calc(100% / 3 - 24px)
+
+.slider__item-text
+  @include flex-center-center
+  flex-direction: column
+
+.slider__item-text--title
+  font-size: 13px
+
+.slider__item-text--description
+  font-size: 11px
+  text-align: center
