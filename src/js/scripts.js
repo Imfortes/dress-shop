@@ -50,4 +50,54 @@ $('.popular-slider').slick({
 
 // DB new
 
+function getData() {
+    const goodsWrapper = document.querySelector('.goods');
+    fetch('http://localhost:3000/db/new.json', {
 
+    })
+        .then((response) => {
+            if (response.ok) {
+                console.log('responce: ', response)
+                return response.json();
+            } else {
+                throw new Error('Данные не были получены, ошибка: ' + response.status);
+            }
+        })
+        .then((data) => {
+            console.log(data)
+            return data;
+        })
+        .catch((err) => {
+            console.warn(err);
+            goodsWrapper.innerHTML = '<div style="color: red; font-size: 30px">Упс, что-то пошло не так</div>';
+        });
+}
+
+function renderCards(data) {
+    const goodsWrapper = document.querySelector('.goods');
+    console.log(data);
+    data.goods.forEach((good) => {
+        console.log(good);
+        const card = document.createElement('div');
+        card.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
+        card.innerHTML = `
+                <div class="card" data-category="${good.category}">
+                ${good.sale ? '<div class="card-sale">🔥Hot Sale🔥</div>' : ''}
+                       <div class="card-img-wrapper">
+                             <span class="card-img-top"
+                              style="background-image: url(${good.img})"></span>
+                             </div>
+                            <div class="card-body justify-content-between">
+                          <div class="card-price style="${good.sale ? 'color:red' : ''}">${good.price} ₽</div>
+                      <h5 class="card-title">${good.title}</h5>
+                    <button class="btn btn-primary">В корзину</button>
+                  </div>
+                </div>
+        `;
+        goodsWrapper.appendChild(card);
+    });
+
+}
+
+const db = getData()
+renderCards(db);
