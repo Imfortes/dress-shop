@@ -1,0 +1,86 @@
+@import "../utils/variables"
+@import "../mixins/flex"
+
+.footer
+  margin: 0
+  margin-top: 20px
+  background-color: #000
+  color: #ffffff
+  font-size: 13px
+  font-weight: bold
+
+  a
+    color: #ffffff
+
+  /* --------------- Footer Inner --------------- */
+
+  &-inner
+    width: 80vw
+    margin: 0 auto
+    @include flex-start-start
+    flex-direction: column
+    padding: 20px 0
+
+    @media screen and (min-width: $mediaWidthTablet)
+      flex-direction: row
+      @include flex-around-start
+
+
+
+  /* --------------- Footer Social --------------- */
+
+  &-social
+
+    &__title
+      font-size: 13px
+      color: #333
+
+    &__inner
+      @include flex-start-center
+
+      &-img
+        width: 30px
+        height: 30px
+
+        &:not(:first-child)
+          margin-left: 5px
+          margin-right: 5px
+
+        &-link
+
+
+          svg
+            fill: #333
+            transition: .5s
+
+        &-link:hover
+
+          svg
+            fill: #ffffff
+
+
+  // --------------- Footer Contacts ---------------
+
+  &-contacts
+    font-size: 13px
+    @include flex-start-start
+    flex-direction: column
+
+    *
+      margin-top: 7.5px
+      margin-bottom: 7.5px
+
+
+.footer-navbar
+
+  &__list
+
+    &-item
+      margin-top: 7.5px
+      margin-bottom: 7.5px
+
+      a
+        transition: .5s
+
+        &:hover
+          color: #333

@@ -1,0 +1,196 @@
+@import "../../utils/variables"
+@import "../../mixins/flex"
+@import "../../mixins/slider-btn"
+
+// ---------------- Compilations
+
+.wrapper-white
+  background-color: #fff
+  margin-top: 15px
+
+.compilations__item
+  width: 100%
+  height: 720px
+  @include flex-center-center
+  flex-direction: column
+  margin-bottom: 15px
+
+  @media screen and (min-width: $mediaWidthTablet)
+    width: 32%
+
+  &-print-dress
+    height: 620px
+    width: 100%
+
+  &-title
+    text-transform: uppercase
+    margin-top: 15px
+    margin-bottom: 15px
+
+// ---------------- Popular
+.popular
+  background-color: #edc5be
+  width: 80vw
+  margin: 0 auto
+  height: 480px
+
+  @media screen and (max-width: $mediaWidthTablet)
+    display: none
+
+.popular-inner
+  height: 100%
+  @include flex-center-center
+  flex-direction: column
+
+.popular-slider
+  @include flex-center-center
+  flex-direction: row
+  width: 80%
+  height: 100%
+
+  &__item
+    @include flex-center-center
+    margin-left: 5px
+    margin-right: 5px
+
+    a
+      color: #000
+
+
+    &-img
+      height: 260px
+
+    &-title
+      height: 40px
+      @include flex-center-center
+      background-color: #fff
+      font-size: 12px
+
+    &:hover .popular-slider__item-title
+      transition: .5s
+      background-color: #9107be
+
+    &:hover h3
+      transition: .5s
+      color: #fff
+
+.popular .slick-prev
+  content: ''
+  margin-right: 50px
+  @include slider-btn
+  width: 221px
+  position: relative
+  border: none
+  outline: none
+  transition: .5s
+
+  &:after
+    content: ''
+    position: absolute
+    top: 60%
+    left: 30%
+    transform: rotate(45deg)
+    width: 16px
+    height: 3px
+    background: #9107be
+
+
+  &:before
+    content: ''
+    position: absolute
+    top: 40%
+    left: 30%
+    transform: rotate(-45deg)
+    width: 16px
+    height: 3px
+    background: #9107be
+
+
+
+.popular .slick-next
+  margin-left: 50px
+  @include slider-btn
+  position: relative
+  width: 221px
+  border: none
+  outline: none
+  transition: .5s
+
+  &:active
+    color: #9107be
+    background-color: #fff
+
+  &:after
+    content: ''
+    position: absolute
+    top: 60%
+    right: 30%
+    transform: rotate(135deg)
+    width: 16px
+    height: 3px
+    background: #9107be
+
+  &:before
+    content: ''
+    position: absolute
+    top: 40%
+    right: 30%
+    transform: rotate(-135deg)
+    width: 16px
+    height: 3px
+    background: #9107be
+
+
+
+#popular-slide1
+  background: url("../img/popular1.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide2
+  background: url("../img/popular2.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide3
+  background: url("../img/popular3.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide4
+  background: url("../img/popular4.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide5
+  background: url("../img/popular5.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide6
+  background: url("../img/popular6.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide7
+  background: url("../img/popular7.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide8
+  background: url("../img/popular8.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide9
+  background: url("../img/popular9.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+#popular-slide10
+  background: url("../img/popular10.jpg") center center no-repeat
+  -webkit-background-size: cover
+  background-size: cover
+
+.button-test
+  @include slider-btn

@@ -3,13 +3,16 @@
 
 .main
   background-color: #f7f7f7
+  padding-top: 20px
+  padding-bottom: 20px
+
+//  ---------------- Delivery ---------------
 
 .delivery
   width: 80%
   height: 250px
   margin: 0 auto
   background: rgb(250, 235, 48)
-
 
   &__content
     height: 100%
@@ -36,13 +39,12 @@
       @include flex-start-start
       flex-direction: column
 
-
     &-tags
       font-weight: normal
       font-size: 16px
 
-
 // --------------- Button
+
 .btn-buy
   height: 40px
   padding: 10px 30px
@@ -51,6 +53,9 @@
   font-weight: normal
   transition: .5s ease
   text-transform: uppercase
+  display: flex
+  justify-content: center
+  align-items: center
 
   &:hover
     background-color: #000
@@ -109,7 +114,7 @@
     width: 100%
     @include flex-center-center
     flex-direction: column
-    margin: 15px 0
+
 
     @media screen and (min-width: $mediaWidthTablet)
       width: 48%
@@ -125,6 +130,9 @@
   padding: 0
 
   @media screen and (min-width: $mediaWidthTablet)
+    height: 510px
+
+  @media screen and (min-width: $mediaWidthTabletHorizontal)
     height: 650px
 
 
@@ -174,32 +182,4 @@
 .trousers-blouses__content-btn,
 .compilations__item__content-btn
   @include btn-border
-
-// ---------------- Compilations
-
-.compilations__item
-  width: 100%
-  height: 720px
-  @include flex-center-center
-  flex-direction: column
-  margin-bottom: 15px
-
-  @media screen and (min-width: $mediaWidthTablet)
-    width: 32%
-
-  &-print-dress
-    height: 620px
-    width: 100%
-
-  &-title
-    text-transform: uppercase
-    margin-top: 15px
-    margin-bottom: 15px
-
-// ---------------- Popular
-.popular
-  background-color: #edc5be
-  width: 80vw
-  margin: 0 auto
-  height: 480px
 

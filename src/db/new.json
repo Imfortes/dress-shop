@@ -1,0 +1,10 @@
+{
+  "goods": [
+    {
+      "title": "Свитер",
+      "image": "../img/sviter1.jpg",
+      "price": "100"
+
+    }
+  ]
+}
