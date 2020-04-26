@@ -1,17 +1,4 @@
-// Hamburger open/close ---------------
 
-const showMenuBtn = document.querySelector('.hamburger'),
-    closeMenuBtn = document.querySelector('.close-btn'),
-    popupMenu = document.querySelector('.menu')
-
-
-showMenuBtn.addEventListener('click', () => {
-    popupMenu.classList.add('active')
-});
-
-closeMenuBtn.addEventListener('click', () => {
-    popupMenu.classList.remove('active')
-});
 
 // Slick slider subheader ---------------
 
@@ -48,56 +35,87 @@ $('.popular-slider').slick({
     nextArrow: '<button class="slick-next" aria-hidden="true"></button>'
 });
 
-// DB new
-
-function getData() {
-    const goodsWrapper = document.querySelector('.goods');
-    fetch('http://localhost:3000/db/new.json', {
-
-    })
-        .then((response) => {
-            if (response.ok) {
-                console.log('responce: ', response)
-                return response.json();
-            } else {
-                throw new Error('Данные не были получены, ошибка: ' + response.status);
-            }
-        })
-        .then((data) => {
-            console.log(data)
-            return data;
-        })
-        .catch((err) => {
-            console.warn(err);
-            goodsWrapper.innerHTML = '<div style="color: red; font-size: 30px">Упс, что-то пошло не так</div>';
-        });
-}
+// Render Product Item
 
 function renderCards(data) {
-    const goodsWrapper = document.querySelector('.goods');
-    console.log(data);
+    const goodsWrapper = document.querySelector('.products');
+    console.log(goodsWrapper.parentElement)
     data.goods.forEach((good) => {
-        console.log(good);
         const card = document.createElement('div');
-        card.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
-        card.innerHTML = `
-                <div class="card" data-category="${good.category}">
-                ${good.sale ? '<div class="card-sale">🔥Hot Sale🔥</div>' : ''}
-                       <div class="card-img-wrapper">
-                             <span class="card-img-top"
-                              style="background-image: url(${good.img})"></span>
-                             </div>
-                            <div class="card-body justify-content-between">
-                          <div class="card-price style="${good.sale ? 'color:red' : ''}">${good.price} ₽</div>
-                      <h5 class="card-title">${good.title}</h5>
-                    <button class="btn btn-primary">В корзину</button>
-                  </div>
+        card.className = 'products__item';
+        card.setAttribute('data-category', good.category);
+        card.setAttribute('data-id', good.id);
+
+        if (goodsWrapper.parentElement.classList[1] === good.category || goodsWrapper.parentElement.classList[1] === good.new){
+            card.innerHTML = `
+
+            <figure class="products__item-img">
+                <img src="${good.image}" alt="">
+            </figure>
+                             
+            <div class="products__item-text">
+
+                <div class="products__item-text-price ">
+                    <span style="${good.sale ? 'color:red' : ''}" class="products__item-text-price-new">${good.new ? good.newPrice = good.oldPrice : good.newPrice} ₽ </span>
+                    <span style="${good.new ? 'display:none' : ''}" class="products__item-text-price-old">${good.oldPrice} ₽ </span>
                 </div>
+                
+                <div class="products__item-text-description">
+                    <h5 class="products__item-text-title">${good.title}</h5>
+                    <h5 class="products__item-text-size">Размер ${good.size}</h5>
+                </div>
+                
+                <button class="products__item-btn">Купить</button>
+
+                </div>
+                
+            </div>
         `;
+        }
+        else {
+            card.style.display = 'none'
+        }
+
+
+
+
         goodsWrapper.appendChild(card);
     });
-
 }
 
-const db = getData()
-renderCards(db);
+renderCards(newDB)
+
+
+// Search
+
+function search() {
+    const cards = document.querySelectorAll('.products__item');
+
+    const goods = document.querySelector('.goods');
+    const min = document.getElementById('min');
+    const max = document.getElementById('max');
+
+    const search = document.querySelector('.header__main-search-input');
+
+
+
+
+
+    // поиск
+    search.addEventListener('input', (e) => {
+        console.log(e)
+        const searchText = new RegExp(search.value.trim(), 'i');
+        console.log(searchText)
+        cards.forEach((card) => {
+            const title = card.querySelector('.products__item-text-title');
+            if (searchText.test(title.textContent)) {
+                card.parentNode.parentNode.parentNode.style.display = 'none';
+            } else {
+                card.parentNode.parentNode.parentNode.style.display = '';
+            }
+        });
+        search.value = '';
+    })
+}
+
+search()

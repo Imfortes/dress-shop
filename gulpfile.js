@@ -7,9 +7,10 @@ const script = require('./gulp/tasks/script');
 const fonts = require('./gulp/tasks/fonts');
 const db = require('./gulp/tasks/db');
 const imageMinify = require('./gulp/tasks/imageMinify');
+const svgSprite = require('./gulp/tasks/svgSprite');
 const clean = require('./gulp/tasks/clean');
 
-const dev = gulp.parallel(html, styles, script, fonts, imageMinify, db);
+const dev = gulp.parallel(html, styles, script, fonts, imageMinify, db, svgSprite);
 
 const build = gulp.series(clean, dev);
 
